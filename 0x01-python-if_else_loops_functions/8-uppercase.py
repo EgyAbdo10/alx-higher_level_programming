@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 # 8-uppercase.py
+
+
 def uppercase(str):
     """print a string in uppercase"""
     for c in str:
