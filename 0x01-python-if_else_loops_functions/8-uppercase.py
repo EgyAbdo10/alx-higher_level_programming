@@ -8,4 +8,4 @@ def uppercase(str):
         else:
             pass
         print("{}".format(chr(i)), end="")
-    print("\n")
+    print("{}".format("\n"), end="")
