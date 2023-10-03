@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 def islower(c):
+    """check if a char is li=owercase or not"""
     if (ord(c) >= 97 and ord(c) <= 122):
         return True
-    elif (ord(c) < 97 or ord(c) > 122) :
+    else:
         return False
-print(islower("a"))
+print(islower("8"))
