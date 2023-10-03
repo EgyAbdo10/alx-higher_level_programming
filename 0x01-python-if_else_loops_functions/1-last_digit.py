@@ -11,6 +11,7 @@ if (number >= 0):
     else:
         print("and is less than 6 and not 0")
 else:
-    print("Last digit of " + str(number) + " is -", end="")
+    number *= -1
+    print("Last digit of -" + str(number) + " is -", end="")
     print((number % 10), end=" ")
     print("and is less than 6 and not 0")
