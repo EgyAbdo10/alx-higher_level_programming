@@ -35,7 +35,7 @@ ptr->next = new;
 return (ptr);
 }
 if (new->n > number)
-retrun (add_node_beg(head, number));
+return (add_node_beg(head, number));
 while (new->next != NULL)
 {
 if (new->next->n < number)
