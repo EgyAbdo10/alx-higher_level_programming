@@ -31,7 +31,8 @@ ptr = malloc(sizeof(listint_t));
 if (ptr == NULL)
 return (NULL);
 ptr->n = number;
-ptr->next = new;
+ptr->next = NULL;
+*head = ptr;
 return (ptr);
 }
 if (new->n > number)
