@@ -1,5 +1,5 @@
 #!/bin/bash
-chmod 666 *
+chmod 777 *
 git add .
 git commit -m "added or modified a file"
 git push
