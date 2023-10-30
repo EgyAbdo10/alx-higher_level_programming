@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 this module is for creating the rectangle class
 """
