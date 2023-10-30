@@ -49,7 +49,7 @@ class Rectangle:
 
     def __str__(self):
         if self.area() == 0:
-            return 0
+            return ""
         else:
             rec = ""
             for i in range(self.height):
