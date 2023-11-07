@@ -5,4 +5,4 @@
 
 def class_to_json(obj):
     """get a dict from object attributes"""
-    return str(obj.__dict__)
+    return obj.__dict__
