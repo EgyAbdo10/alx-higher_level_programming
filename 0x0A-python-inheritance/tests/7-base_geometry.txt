@@ -15,25 +15,90 @@ case 1: common case
 
 -------------------------------------
 
-case 2: not an int
+case 2: value not an int
 
 >>> bg = BaseGeometry()
 >>> try:
-... 	bg.integer_validator("name", "John")
+...     bg.integer_validator("name", "John")
 ... except Exception as e:
-... 	print("[{}] {}".format(e.__class__.__name__, e))
+...     print("[{}] {}".format(e.__class__.__name__, e))
 [TypeError] name must be an integer
 >>>
 
 -------------------------------------
 
-case 3: negative integer
+case 3: value is a negative integer
 
 >>> try:
-... 	bg.integer_validator("age", -1)
+...     bg.integer_validator("age", -1)
 ... except Exception as e:
-... 	print("[{}] {}".format(e.__class__.__name__, e))
+...     print("[{}] {}".format(e.__class__.__name__, e))
 [ValueError] age must be greater than 0
+>>>
+
+-------------------------------------
+
+case 4: value is zero
+
+>>> try:
+...     bg.integer_validator("age", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+>>>
+
+-------------------------------------
+
+case 5: not a BaseGeometry object
+
+>>> ll = [1, 2, 3]
+>>> ll.integer_validator("hey", 30)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'integer_validator'
+>>>
+
+-------------------------------------
+
+case 6: no args for integer_validator
+
+>>> pg = BaseGeometry()
+>>> pg.integer_validator()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+>>>
+
+-------------------------------------
+
+case 7: no value arg for integer_validator
+
+>>> pg.integer_validator("kilo")
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+>>>
+
+-------------------------------------
+
+case 8: value is a tuple
+
+>>> try:
+...     bg.integer_validator("name", (20,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+-------------------------------------
+
+case 8: value is a float
+
+>>> try:
+...     bg.integer_validator("name", 20.3)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
 >>>
 
 -------------------------------------
