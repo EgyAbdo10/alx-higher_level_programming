@@ -6,11 +6,10 @@ def my_factorial(n):
     """get the factorial of a number"""
     if n == 0:
         return 1
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
-
+    elif n == 1:
+        return 1
+    else:
+        return n * my_factorial(n - 1)
 
 
 def comb_list(n):
@@ -21,7 +20,7 @@ def comb_list(n):
     m = n
     comb_list = []
     while (m >= 0):
-        val = int((my_factorial(n) / my_factorial(n - m)) / my_factorial(m))
+        val = int((my_factorial(n) / my_factorial(n - m)) / factorial(m))
         comb_list.append(val)
         m -= 1
     return comb_list
