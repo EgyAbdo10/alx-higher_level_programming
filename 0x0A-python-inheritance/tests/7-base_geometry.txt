@@ -102,3 +102,59 @@ case 8: value is a float
 >>>
 
 -------------------------------------
+
+case 9: value is a list
+
+>>> try:
+...     bg.integer_validator("name", [2])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+-------------------------------------
+
+case 10: value is a booleon
+
+>>> try:
+...     bg.integer_validator("name", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+-------------------------------------
+
+case 11: value is a dictionary
+
+>>> try:
+...     bg.integer_validator("name", {1 : 2})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+-------------------------------------
+
+case 12: value is None
+
+>>> try:
+...     bg.integer_validator("name", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+-------------------------------------
+
+case 13: area()
+
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
+>>>
+
+-------------------------------------
