@@ -48,7 +48,7 @@ case 4: a list is inherited
 
 >>> a = [1, 2, 0]
 >>> my_list = MyList(a)
->>> a.print_sorted()
+>>> my_list.print_sorted()
 [0, 1, 2]
 
 -------------------------------------------
