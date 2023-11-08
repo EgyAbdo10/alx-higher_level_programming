@@ -1,0 +1,39 @@
+this is the baseGeometry test cases
+
+case 0: import
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>>
+
+-------------------------------------
+
+case 1: common case
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>>
+
+-------------------------------------
+
+case 2: not an int
+
+>>> bg = BaseGeometry()
+>>> try:
+... 	bg.integer_validator("name", "John")
+... except Exception as e:
+... 	print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+>>>
+
+-------------------------------------
+
+case 3: negative integer
+
+>>> try:
+... 	bg.integer_validator("age", -1)
+... except Exception as e:
+... 	print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+>>>
+
+-------------------------------------
