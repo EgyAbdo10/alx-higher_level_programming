@@ -21,3 +21,10 @@ case 1: common use
 [1, 2, 3, 4, 5]
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+--------------------------------
+
+case 2: check instantiation
+
+>>> type(my_list).__name__
+'MyList'
