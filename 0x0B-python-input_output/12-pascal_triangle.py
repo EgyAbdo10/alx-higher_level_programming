@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# !/usr/bin/python3
 """create the pascal triangle"""
 
 
@@ -20,7 +20,7 @@ def comb_list(n):
     m = n
     comb_list = []
     while (m >= 0):
-        val = int((my_factorial(n) / my_factorial(n - m)) / factorial(m))
+        val = int((my_factorial(n) / my_factorial(n - m)) / my_factorial(m))
         comb_list.append(val)
         m -= 1
     return comb_list
