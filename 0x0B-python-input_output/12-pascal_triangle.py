@@ -2,24 +2,24 @@
 """create the pascal triangle"""
 
 
-def factorial(n):
+def my_factorial(n):
     if n == 0:
         return 1
     elif n == 1:
         return 1
     else:
-        return n * factorial(n - 1)
+        return n * my_factorial(n - 1)
 
 
 def comb_list(n):
-    """get all the numbers of combinations
+    """get a list of all the numbers of combinations
     nCm from m = 0 to m = n"""
     if n < 0:
         return []
     m = n
     comb_list = []
     while (m >= 0):
-        val = int((factorial(n) / factorial(n - m)) / factorial(m))
+        val = int((my_factorial(n) / my_factorial(n - m)) / my_factorial(m))
         comb_list.append(val)
         m -= 1
     return comb_list
