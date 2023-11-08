@@ -158,3 +158,12 @@ area() is not implemented
 >>>
 
 -------------------------------------
+
+case 14: check instantiation
+
+>>> bg = BaseGeometry()
+>>> type(bg).__name__
+'BaseGeometry'
+>>>
+
+-------------------------------------
