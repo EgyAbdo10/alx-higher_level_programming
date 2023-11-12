@@ -77,29 +77,30 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         my_args = ["id", "width", "height", "x", "y"]
         if len(args) != 0:
-            for i in range(len(args)):
+            for i in range(len(my_args)):
+                
                 setattr(self, my_args[i], args[i])
         else:
             for item in kwargs.items():
-                setattr(self, item[0], item[1])
+                if (hasattr(self, item[0])):
+                    setattr(self, item[0], item[1])
+    
+    def to_dictionary(self):
+        return {"id" : self.id, "width" : self.width,
+                "height" : self.height, "x" : self.x, "y" : self.y}
 
     def __str__(self):
-        # [Rectangle] (<id>) <x>/<y> - <width>/<height>
         return (f"""[Rectangle] ({self.id}) {self.x}/{self.y}"""
         f""" - {self.width}/{self.height}""")
     
+
+    
 if __name__ == "__main__":
-    r1 = Rectangle(10, 10, 10, 10)
+    r1 = Rectangle(3, 5, 1)
+    r1_dictionary = r1.to_dictionary()
+    r2 = Rectangle.create(**r1_dictionary)
     print(r1)
-
-    r1.update(height=1)
-    print(r1)
-
-    r1.update(width=1, x=2)
-    print(r1)
-
-    r1.update(y=1, width=2, x=3, id=89)
-    print(r1)
-
-    r1.update(x=1, height=2, y=3, width=4)
-    print(r1)
+    print(r2)
+    print(r1 is r2)
+    print(r1 == r2)
+    
