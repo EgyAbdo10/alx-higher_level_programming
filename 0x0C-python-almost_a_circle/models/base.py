@@ -3,6 +3,8 @@
 
 
 import json
+import io
+import contextlib
 
 class Base:
     """This class will be the “base” of all other classes in this project"""

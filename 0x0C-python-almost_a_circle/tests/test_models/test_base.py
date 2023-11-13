@@ -49,7 +49,6 @@ class TestBase_2(unittest.TestCase):
     def test_to_json_str_2(self):
         """test for not list of dicts objects"""
         int1 = 4
-
         self.assertEqual(str(int1), Base.to_json_string(int1))
 
 if __name__ == "__main__":

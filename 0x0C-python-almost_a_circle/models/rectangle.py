@@ -71,7 +71,7 @@ class Rectangle(Base):
             print()
             i += 1
         for x in range(self.height):
-            print(" " * self.width, end="")
+            print(" " * self.x, end="")
             print("#" * self.width)
 
     def update(self, *args, **kwargs):
@@ -96,11 +96,11 @@ class Rectangle(Base):
 
     
 if __name__ == "__main__":
-    r1 = Rectangle(3, 5, 1)
-    r1_dictionary = r1.to_dictionary()
-    r2 = Rectangle.create(**r1_dictionary)
-    print(r1)
-    print(r2)
-    print(r1 is r2)
-    print(r1 == r2)
+    r1 = Rectangle(4, 6)
+    r1.display()
+
+    print("---")
+
+    r1 = Rectangle(2, 2)
+    r1.display()
     

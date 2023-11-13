@@ -1,6 +1,7 @@
 import unittest
 from models.rectangle import Rectangle
-
+import io
+import contextlib
 
 class TestRectangle(unittest.TestCase):
 
@@ -9,9 +10,10 @@ class TestRectangle(unittest.TestCase):
     rec5 = Rectangle(4, 3, 0, 0, 60)
     rec6 = Rectangle(4, 3)
     rec7 = Rectangle(4, 3, 0, 0, 300)
+
     def test_instantiation(self):
         self.assertIsInstance(TestRectangle.rec1, Rectangle)
-    
+
     def test_width(self):
         self.assertEqual(TestRectangle.rec1.width, 5)
     def test_height(self):
@@ -121,6 +123,21 @@ class TestRectangle(unittest.TestCase):
         def test_idNone(self):
             self.assertEqual(TestRectangle.rec2.id, 1)
     
+class TestRectangle_2(unittest.TestCase):
+    """test the rectangle class methods"""
+    r1 = Rectangle(4, 6, 2, 1, 12)
+    def test_str(self):
+        self.assertEqual(str(TestRectangle_2.r1), "[Rectangle] (12) 2/1 - 4/6")
+
+    # def test_display(self):
+    #     f = io.StringIO()
+    #     rec = Rectangle(2, 2, 1, 1, 20)
+    #     with contextlib.redirect_stdout(f):
+    #         rec.display()
+    #     printed = f.getvalue()
+    #     self.assertEqual(printed, "\n ##\n ##\n")
 
 if __name__ == "__main__":
+    rec = Rectangle(2, 2, 1, 1, 20)
+    rec.display()
     unittest.main()
