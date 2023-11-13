@@ -115,13 +115,13 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         self.assertEqual(TestRectangle.rec6.area(), 12)
 
-    class TestIds(unittest.TestCase):
-        rec1 = Rectangle(5, 3, 2, 1, 20)
-        rec2 = Rectangle(10, 20, 0, 0)
-        def test_id_notNone(self):
-            self.assertEqual(TestRectangle.rec1.id, 20)
-        def test_idNone(self):
-            self.assertEqual(TestRectangle.rec2.id, 1)
+class TestIds(unittest.TestCase):
+    rec1 = Rectangle(5, 3, 2, 1, 20)
+    rec2 = Rectangle(10, 20, 0, 0)
+    def test_id_notNone(self):
+        self.assertEqual(TestRectangle.rec1.id, 20)
+    def test_idNone(self):
+        self.assertEqual(TestRectangle.rec2.id, 1)
     
 class TestRectangle_2(unittest.TestCase):
     """test the rectangle class methods"""
@@ -129,15 +129,36 @@ class TestRectangle_2(unittest.TestCase):
     def test_str(self):
         self.assertEqual(str(TestRectangle_2.r1), "[Rectangle] (12) 2/1 - 4/6")
 
-    # def test_display(self):
-    #     f = io.StringIO()
-    #     rec = Rectangle(2, 2, 1, 1, 20)
-    #     with contextlib.redirect_stdout(f):
-    #         rec.display()
-    #     printed = f.getvalue()
-    #     self.assertEqual(printed, "\n ##\n ##\n")
+    def test_display(self):
+        f = io.StringIO()
+        f2 = io.StringIO()
+        rec = Rectangle(2, 2, 1, 1, 20)
+        rec2 = Rectangle(2, 3)
+        with contextlib.redirect_stdout(f):
+            rec.display()
+        printed = f.getvalue()
+        # x and y - 0
+        self.assertEqual(printed, "\n ##\n ##\n")
+        with contextlib.redirect_stdout(f2):
+            rec2.display()
+        printed = f2.getvalue()
+        self.assertEqual(printed, "##\n##\n##\n")
+
+class TestRectangle_3(unittest.TestCase):
+    """test update method and more"""
+    def test_update_args(self):
+        rec1 = Rectangle(2, 3, 1, 2, 100)
+        # all aruments provided
+        rec1.update(5, 4, 6, 7, 50)
+        self.assertEqual((5, 4, 6, 7, 50),
+            (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
+        rec1.update()
+        self.assertEqual((5, 4, 6, 7, 50),
+            (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
+        # not all aruments provided
+        rec1.update(33, 10)
+        self.assertEqual((33, 10, 6, 7, 50),
+            (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
 
 if __name__ == "__main__":
-    rec = Rectangle(2, 2, 1, 1, 20)
-    rec.display()
     unittest.main()

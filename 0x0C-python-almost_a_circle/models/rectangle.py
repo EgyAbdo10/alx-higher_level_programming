@@ -75,15 +75,18 @@ class Rectangle(Base):
             print("#" * self.width)
 
     def update(self, *args, **kwargs):
+        """arguments are in the following order
+        id, width, height, x, y"""
         my_args = ["id", "width", "height", "x", "y"]
         if len(args) != 0:
-            for i in range(len(my_args)):
-                
+            for i in range(len(args)): 
                 setattr(self, my_args[i], args[i])
         else:
             for item in kwargs.items():
-                if (hasattr(self, item[0])):
-                    setattr(self, item[0], item[1])
+                if (hasattr(self, item[0])) == False:
+                    raise AttributeError(f"""{self.__class__.__name__}"""
+                               f""" object has n attribute {item[0]}""")
+                setattr(self, item[0], item[1])
     
     def to_dictionary(self):
         return {"id" : self.id, "width" : self.width,
