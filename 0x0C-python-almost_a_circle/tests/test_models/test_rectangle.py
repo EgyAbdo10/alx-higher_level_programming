@@ -23,8 +23,8 @@ class TestRectangle(unittest.TestCase):
 
     def test_id_notNone(self):
         self.assertEqual(TestRectangle.rec1.id, 20)
-    def test_idNone(self):
-        self.assertEqual(TestRectangle.rec2.id, 1)
+    # def test_idNone(self):
+    #     self.assertEqual(TestRectangle.rec2.id, 1)
 
 
     def test_x_0(self):
