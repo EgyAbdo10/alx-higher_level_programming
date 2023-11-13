@@ -1,6 +1,7 @@
 import unittest
 from models.rectangle import Rectangle
 
+
 class TestRectangle(unittest.TestCase):
 
     rec1 = Rectangle(5, 3, 2, 1, 20)
@@ -19,13 +20,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(TestRectangle.rec1.x, 2)
     def test_y(self):
         self.assertEqual(TestRectangle.rec1.y, 1) 
-
-
-    def test_id_notNone(self):
-        self.assertEqual(TestRectangle.rec1.id, 20)
-    # def test_idNone(self):
-    #     self.assertEqual(TestRectangle.rec2.id, 1)
-
 
     def test_x_0(self):
         self.assertEqual(TestRectangle.rec2.x, 0)
@@ -118,6 +112,15 @@ class TestRectangle(unittest.TestCase):
 
     def test_area(self):
         self.assertEqual(TestRectangle.rec6.area(), 12)
+
+    class TestIds(unittest.TestCase):
+        rec1 = Rectangle(5, 3, 2, 1, 20)
+        rec2 = Rectangle(10, 20, 0, 0)
+        def test_id_notNone(self):
+            self.assertEqual(TestRectangle.rec1.id, 20)
+        def test_idNone(self):
+            self.assertEqual(TestRectangle.rec2.id, 1)
+    
 
 if __name__ == "__main__":
     unittest.main()
