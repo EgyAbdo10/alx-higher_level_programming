@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+
+"""
+this module has the rectangle class
+"""
+
 from models.base import Base
-"""this module has the rectangle class"""
 
 
 class Rectangle(Base):

@@ -16,6 +16,7 @@ class TestRectangle(unittest.TestCase):
     rec7 = Rectangle(4, 3, 0, 0, 300)
 
     def test_instantiation(self):
+        """test instantion of objects"""
         self.assertIsInstance(TestRectangle.rec1, Rectangle)
 
     def test_width(self):
