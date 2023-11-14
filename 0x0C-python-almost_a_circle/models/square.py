@@ -9,6 +9,7 @@ from models.rectangle import Rectangle
 class Square(Rectangle):
     """Square class creates instances of squares
     with specific characteristics and inherits from rectangle class"""
+    
     def __init__(self, size, x=0, y=0, id=None):
         """define a square instance of size and x, y and id"""
         super().__init__(size, size, x, y, id)
