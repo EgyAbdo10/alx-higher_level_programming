@@ -159,6 +159,32 @@ class TestRectangle_3(unittest.TestCase):
         rec1.update(33, 10)
         self.assertEqual((33, 10, 6, 7, 50),
             (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
+        # unacceptable args
+        with self.assertRaises(ValueError) as context:
+            rec1.update(2, -2)
+        self.assertEqual(str(context.exception), "width must be > 0")
+
+    def test_update_kwargs(self):
+        rec1 = Rectangle(2, 3, 1, 2, 100)
+        # all kwargs in order
+        kwargs = {"id": 30, "width": 5, "height": 6, "x": 13, "y": 12}
+        rec1.update(**kwargs)
+        self.assertEqual((30, 5, 6, 13, 12),
+                        (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
+        # all kwargs not in order
+        kwargs_2 = {"width": 7, "id": 20, "x": 15, "height": 8, "y": 1}
+        rec1.update(**kwargs_2)
+        self.assertEqual((20, 7, 8, 15, 1),
+                        (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
+        # not full kwargs
+        kwargs_3 = {"width": 23, "y": 20}
+        rec1.update(**kwargs_3)
+        self.assertEqual((20, 23, 8, 15, 20),
+                        (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
+        # skip kwargs if args exists adn empty
+        rec1.update(10, 20, **kwargs_3)
+        self.assertEqual((10, 20, 8, 15, 20),
+                        (rec1.id, rec1.width, rec1.height, rec1.x, rec1.y))
 
 if __name__ == "__main__":
     unittest.main()
