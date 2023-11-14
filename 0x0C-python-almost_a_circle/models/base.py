@@ -20,6 +20,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """transform the object passed into a json string"""
         if list_dictionaries is None:
             return "[]"
         else:
@@ -27,6 +28,8 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """save the object passed to a json file of the same 
+        name as the class"""
         my_list = []
         if list_objs is None:
             with open(cls.__name__ +".json", "w") as f:
@@ -39,6 +42,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """transform the json string passed into an object"""
         if json_string is None or json_string == "[]":
             return []
         else:
@@ -46,6 +50,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        """create a new instance based on the dictionart passed attrs"""
         if dictionary is not None and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 new_ins = cls(3, 3)
@@ -56,6 +61,8 @@ class Base:
     
     @classmethod
     def load_from_file(cls):
+        """get the data from a file and extract instances
+        and append them into a list and then return the list"""
         try:
             with open(cls.__name__ + ".json", "r") as file: 
                 data = file.read()
