@@ -120,7 +120,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(TestRectangle.rec6.area(), 12)
 
 class TestIds(unittest.TestCase):
-    """test the rectangle class id attributes"""
+    """test the rectangle class id attributes for various cases"""
     rec1 = Rectangle(5, 3, 2, 1, 20)
     rec2 = Rectangle(10, 20, 0, 0)
     def test_id_notNone(self):
@@ -129,7 +129,7 @@ class TestIds(unittest.TestCase):
         self.assertEqual(TestRectangle.rec2.id, 5)
     
 class TestRectangle_2(unittest.TestCase):
-    """test the rectangle class methods"""
+    """test the rectangle class methods for various cases"""
     r1 = Rectangle(4, 6, 2, 1, 12)
     def test_str(self):
         self.assertEqual(str(TestRectangle_2.r1), "[Rectangle] (12) 2/1 - 4/6")
@@ -150,7 +150,7 @@ class TestRectangle_2(unittest.TestCase):
         self.assertEqual(printed, "##\n##\n##\n")
 
 class TestRectangle_3(unittest.TestCase):
-    """test the rectangle update method and more"""
+    """test the rectangle update method and more for various cases"""
     def test_update_args(self):
         rec1 = Rectangle(2, 3, 1, 2, 100)
         # all aruments provided
