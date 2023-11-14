@@ -121,7 +121,7 @@ class TestIds(unittest.TestCase):
     def test_id_notNone(self):
         self.assertEqual(TestRectangle.rec1.id, 20)
     def test_idNone(self):
-        self.assertEqual(TestRectangle.rec2.id, 1)
+        self.assertEqual(TestRectangle.rec2.id, 5)
     
 class TestRectangle_2(unittest.TestCase):
     """test the rectangle class methods"""

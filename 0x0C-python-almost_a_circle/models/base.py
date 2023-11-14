@@ -3,8 +3,7 @@
 
 
 import json
-import io
-import contextlib
+
 
 class Base:
     """This class will be the “base” of all other classes in this project"""
@@ -70,10 +69,3 @@ class Base:
             return instances_list
         except FileNotFoundError:
             return []
-        
-
-
-
-if __name__ == "__main__":
-    # print(json.dumps("[]"))
-    pass

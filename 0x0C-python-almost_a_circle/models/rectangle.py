@@ -95,15 +95,3 @@ class Rectangle(Base):
     def __str__(self):
         return (f"""[Rectangle] ({self.id}) {self.x}/{self.y}"""
         f""" - {self.width}/{self.height}""")
-    
-
-    
-if __name__ == "__main__":
-    r1 = Rectangle(4, 6)
-    r1.display()
-
-    print("---")
-
-    r1 = Rectangle(2, 2)
-    r1.display()
-    
