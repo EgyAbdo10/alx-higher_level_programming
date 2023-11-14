@@ -1,10 +1,14 @@
+#!/usr/bin/python3
+"""this module test class rectangle by unittesting"""
+
+
 import unittest
 from models.rectangle import Rectangle
 import io
 import contextlib
 
 class TestRectangle(unittest.TestCase):
-
+    """test the rectangle class attributes"""
     rec1 = Rectangle(5, 3, 2, 1, 20)
     rec2 = Rectangle(10, 20, 0, 0)
     rec5 = Rectangle(4, 3, 0, 0, 60)
@@ -116,6 +120,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(TestRectangle.rec6.area(), 12)
 
 class TestIds(unittest.TestCase):
+    """test the rectangle class id attributes"""
     rec1 = Rectangle(5, 3, 2, 1, 20)
     rec2 = Rectangle(10, 20, 0, 0)
     def test_id_notNone(self):
@@ -145,7 +150,7 @@ class TestRectangle_2(unittest.TestCase):
         self.assertEqual(printed, "##\n##\n##\n")
 
 class TestRectangle_3(unittest.TestCase):
-    """test update method and more"""
+    """test the rectangle update method and more"""
     def test_update_args(self):
         rec1 = Rectangle(2, 3, 1, 2, 100)
         # all aruments provided

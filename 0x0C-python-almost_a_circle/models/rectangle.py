@@ -1,12 +1,12 @@
 #!/usr/bin/python3
+from models.base import Base
+
 """this module has the rectangle class"""
 
 
-from models.base import Base
-
-
 class Rectangle(Base):
-
+    """rectangle class creates instances of rectangles
+    with specific characteristics"""
     def __init__(self, width, height, x=0, y=0, id=None):
         self.width = width
         self.height = height
