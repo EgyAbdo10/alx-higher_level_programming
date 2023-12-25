@@ -1,6 +1,2 @@
 -- show full description
-SELECT *
-FROM 
-    information_schema.COLUMNS
-where
-table_namec = "first_table";
+SHOW CREATE TABLE first_table;
