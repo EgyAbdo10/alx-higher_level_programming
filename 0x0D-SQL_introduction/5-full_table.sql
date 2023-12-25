@@ -1,2 +1,6 @@
 -- show full description
-SHOW COLUMNS FROM first_table;
+SELECT *
+FROM 
+    information_schema.COLUMNS
+where
+table_namec = "first_table";
