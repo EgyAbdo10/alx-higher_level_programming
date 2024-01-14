@@ -1,7 +1,5 @@
 #!/usr/bin/node
-const newModule = require('node:process');
-const args = newModule.argv;
-switch (args.length) {
+switch (process.argv.length) {
   case 2:
     console.log('No argument');
     break;
