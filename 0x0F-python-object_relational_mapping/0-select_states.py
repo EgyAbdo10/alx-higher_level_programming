@@ -2,6 +2,7 @@
 
 """this code retrieves data from a states table"""
 
+
 from sqlalchemy import create_engine, MetaData, Table
 from sqlalchemy.orm import sessionmaker
 import MySQLdb
