@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
-"""this code retrieves data from a states table"""
+"""
+this code retrieves data from a states table
+in the follwoign format (id, name_of_state)
+using sqlalchemy
+"""
 
 
 from sqlalchemy import create_engine, MetaData, Table
