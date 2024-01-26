@@ -18,11 +18,12 @@ if __name__ == "__main__":
     States = Table("states", metadata, autoload_with=engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    records = session.query(States).filter(
-        func.substring(States.c.name, 1, 1) == "N"
-        )
+    records = session.query(States)
+# .filter(
+# func.substring(States.c.name, 1, 1) == "N"
+# )
 
     for rec in records:
-        # if rec.name[0] == "N":
-        print(f"({rec.id}, '{rec.name}')")
+        if rec.name[0] == "N":
+            print(f"({rec.id}, '{rec.name}')")
     session.close()
