@@ -28,6 +28,8 @@ if __name__ == "__main__":
     #                         Citeies.c.id.label("city_id"),
     #                         States).filter(Citeies.c.state_id == States.c.id)
     records = cur.fetchall()
+    if len(records) == 0:
+        print()
     for rec in records:
         # print("({}, '{}', '{}')".format(
         # rec.city_id, rec.city_name, rec.name))
