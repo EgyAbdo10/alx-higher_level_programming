@@ -23,5 +23,5 @@ if __name__ == "__main__":
 
     for rec in records:
         if rec.name == argv[4]:
-            print(f"({rec.id}, '{rec.name}')")
+            print("({}, '{}')".format(rec.id, rec.name))
     session.close()
