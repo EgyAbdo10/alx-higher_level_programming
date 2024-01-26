@@ -20,7 +20,7 @@ if __name__ == "__main__":
     # States = Table("states", metadata, autoload_with=engine)
     # Citeies = Table("cities", metadata, autoload_with=engine)
     state_name = argv[4]
-    cur.execute(f"""SELECT c.id, c.name, s.name FROM cities as c
+    cur.execute(f"""SELECT c.name FROM cities as c
                     join states as s
                     on s.id = c.state_id
                     where s.name = '{state_name}'""")
@@ -31,5 +31,8 @@ if __name__ == "__main__":
     for rec in records:
         # print("({}, '{}', '{}')".format(
         # rec.city_id, rec.city_name, rec.name))
-        print(rec)
+        if rec != records[-1]:
+            print(rec[0], end=", ")
+        else:
+            print(rec[0])
     # session.close()
