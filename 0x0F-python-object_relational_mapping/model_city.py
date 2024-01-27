@@ -11,6 +11,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sys import argv
 from model_state import State, Base
 
+
 class City(Base):
     """
     this class creates a 'cities' table in a passed db
@@ -24,6 +25,7 @@ class City(Base):
                 nullable=False, primary_key=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey(State.id))
+
     def __init__(self, name, state_id, nullable=False):
         self.name = name
         self.state_id = state_id
