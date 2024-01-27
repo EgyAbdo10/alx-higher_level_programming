@@ -17,7 +17,7 @@ Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-records = session.query(State).all()
+records = session.query(State).order_by(State.id.asc()).all()
 
 for rec in records:
     print(f"{rec.id}: {rec.name}")
