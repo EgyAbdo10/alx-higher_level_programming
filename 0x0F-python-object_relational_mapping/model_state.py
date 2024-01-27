@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-"""this is a module to create States table in a db"""
+"""
+this is a module to create States table in a db
+and it connects to a databse throw orm sqlalchemy
+"""
 
 from sqlalchemy import Integer, Null, String, create_engine, Column
 from sqlalchemy.orm import sessionmaker
