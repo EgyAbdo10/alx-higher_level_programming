@@ -21,4 +21,4 @@ if __name__ == "__main__":
     for rec in records:
         if "a" in rec.name.lower():
             session.delete(rec)
-            session.commit()
+    session.commit()
