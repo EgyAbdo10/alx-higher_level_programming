@@ -9,7 +9,8 @@ from sys import argv
 
 if __name__ == "__main__":
     engine = create_engine(
-        f"mysql+mysqlconnector://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}"
+        f"mysql+mysqlconnector://{argv[1]}:{argv[2]}@localhost:3306/{argv[3]}",
+        pool_pre_ping=True
         )
 
     Base.metadata.create_all(bind=engine)
@@ -17,7 +18,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    records_ = session.query(State).order_by(State.id.asc()).all()
+    records_ = session.query(State).order_by(State.id.asc())
 
     for rec in records_:
         print(f"{rec.id}: {rec.name}")
