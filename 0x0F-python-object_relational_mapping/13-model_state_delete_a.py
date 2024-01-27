@@ -18,7 +18,10 @@ if __name__ == "__main__":
     session = Session()
 
     records = session.query(State).all()
+    deleted = []
     for rec in records:
         if "a" in rec.name.lower():
-            session.delete(rec)
+            deleted.append(rec)
+    for rec in deleted:
+        session.delete(rec)
     session.commit()
