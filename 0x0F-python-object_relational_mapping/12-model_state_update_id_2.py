@@ -21,7 +21,3 @@ if __name__ == "__main__":
     if record:
         record.name = "New Mexico"
         session.commit()
-    else:
-        rec = State("New Mexico")
-        session.add(rec)
-        session.commit()
