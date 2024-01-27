@@ -4,6 +4,7 @@
 
 from model_state import Base, State
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from sys import argv
 
 
@@ -13,3 +14,7 @@ engine = create_engine(
 
 Base.metadata.create_all(bind=engine)
 
+Session = sessionmaker(bind=engine)
+session = Session()
+
+records = session.query(State)
