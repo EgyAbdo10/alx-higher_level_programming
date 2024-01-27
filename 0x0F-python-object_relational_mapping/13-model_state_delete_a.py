@@ -17,11 +17,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    records = session.query(State).all()
+    records = session.query(State).filter(State.name.like("%a%")).all()
     deleted = []
     for rec in records:
-        if "a" in rec.name.lower():
-            deleted.append(rec)
-    for rec in deleted:
         session.delete(rec)
     session.commit()
