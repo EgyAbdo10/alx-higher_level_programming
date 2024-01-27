@@ -17,7 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    records = session.query(State).order_by(State.id.asc()).all()
+    records_ = session.query(State).order_by(State.id.asc()).all()
 
-    for rec in records:
+    for rec in records_:
         print(f"{rec.id}: {rec.name}")
