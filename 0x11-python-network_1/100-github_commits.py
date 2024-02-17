@@ -15,14 +15,14 @@ from sys import argv
 if __name__ == "__main__":
     repo = argv[1]
     owner = argv[2]
-    headers = {"Authorization":
-               'token ' + "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"}
+    headers = {"Authorization": 'token ' +
+               "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"}
     response = requests.get(
-        url=f"https://api.github.com/repos/{owner}/{repo}/commits",
+        url=f" https://api.github.com/repos/{owner}/{repo}/commits",
             headers=headers
         )
     for i in range(10):
         sha = response.json()[i].get("sha")
         author = response.json()[i].get("commit").get("author").get("name")
-        # date = response.json()[i].get("commit").get("author").get("date")
+        date = response.json()[i].get("commit").get("author").get("date")
         print(sha + " " + author)
