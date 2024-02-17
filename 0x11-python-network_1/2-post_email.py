@@ -18,4 +18,4 @@ if __name__ == "__main__":
     req = urllib.request.Request(url=argv[1], data=encoded_data, method="POST")
     with urllib.request.urlopen(req) as response:
         body_response = response.read().decode("utf-8")
-        print(f"Your email is: {body_response}")
+        print(body_response)
