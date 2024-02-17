@@ -10,6 +10,6 @@ from sys import argv
 
 if __name__ == "__main__":
     headers = {"Authorization": 'token ' + argv[2]}
-    response = requests.post(url=f"https://api.github.com/{argv[1]}",
+    response = requests.get(url=f"https://api.github.com/{argv[1]}",
                              headers=headers)
     print(response.json().get("id"))
