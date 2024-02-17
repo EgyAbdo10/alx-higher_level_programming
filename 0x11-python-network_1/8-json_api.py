@@ -10,7 +10,7 @@ from sys import argv
 
 if __name__ == "__main__":
     data = {"q": argv[1]}
-    if len(argv) > 2:
+    if len(argv) < 2:
         data = {"q": ""}
     response = requests.post("http://0.0.0.0:5000/search_user", data=data)
     try:
