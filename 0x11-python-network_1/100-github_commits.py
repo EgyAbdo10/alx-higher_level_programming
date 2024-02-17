@@ -17,8 +17,11 @@ if __name__ == "__main__":
     owner = argv[2]
     response = requests.get(
         url=f" https://api.github.com/repos/{owner}/{repo}/commits")
-    for i in range(10):
-        sha = response.json()[i].get("sha")
-        author = response.json()[i].get("commit").get("author").get("name")
-        date = response.json()[i].get("commit").get("author").get("date")
-        print(sha + ": " + author)
+    for i in range(len(response.json())):
+        if i < 10:
+            sha = response.json()[i].get("sha")
+            author = response.json()[i].get("commit").get("author").get("name")
+            date = response.json()[i].get("commit").get("author").get("date")
+            print(sha + ": " + author)
+        else:
+            break
