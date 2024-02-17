@@ -21,4 +21,4 @@ if __name__ == "__main__":
         sha = response.json()[i].get("sha")
         author = response.json()[i].get("commit").get("author").get("name")
         date = response.json()[i].get("commit").get("author").get("date")
-        print(sha + " " + author)
+        print(sha + ": " + author)
