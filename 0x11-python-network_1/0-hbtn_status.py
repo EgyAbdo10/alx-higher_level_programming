@@ -14,3 +14,4 @@ if __name__ == "__main__":
         print(f"\t- type: {type(content_b)}")
         print(f"\t- content: {content_b}")
         print(f"\t- utf8 content: {content}")
+
