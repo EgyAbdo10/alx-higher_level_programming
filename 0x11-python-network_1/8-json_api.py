@@ -18,6 +18,8 @@ if __name__ == "__main__":
         if res_dict == {}:
             print("No result")
         else:
-            print(f"[{res_dict.get("id")}] {res_dict.get("name")}")
+            id = res_dict.get('id')
+            name = res_dict.get("name")
+            print(f"[{id}] {name}")
     except TypeError:
         print("Not a valid JSON")
