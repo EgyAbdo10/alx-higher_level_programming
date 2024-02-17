@@ -11,5 +11,5 @@ from sys import argv
 if __name__ == "__main__":
     headers = {"Authorization": 'token ' + argv[2]}
     response = requests.get(url="https://api.github.com/user",
-                             headers=headers)
+                            headers=headers)
     print(response.json().get("id"))
