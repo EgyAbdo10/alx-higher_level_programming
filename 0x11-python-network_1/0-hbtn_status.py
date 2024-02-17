@@ -10,6 +10,7 @@ if __name__ == "__main__":
         charset = response.headers.get_content_charset()
         content_b = response.read()
         content = content_b.decode("utf-8")
+        print("Body response:")
         print(f"    - type: {type(content_b)}")
         print(f"    - content: {content_b}")
         print(f"    - utf8 content: {content}")
