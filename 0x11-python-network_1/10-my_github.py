@@ -9,6 +9,6 @@ import requests
 from sys import argv
 
 if __name__ == "__main__":
-    response = requests.post(url="https://api.github.com/octocat",
-                             auth=(argv[1], argv[2]))
-    print(response.json()["id"])
+    response = requests.post(url=f"https://api.github.com/{argv[1]}",
+                             auth=(argv[2]))
+    print(response.json().get("id"))
