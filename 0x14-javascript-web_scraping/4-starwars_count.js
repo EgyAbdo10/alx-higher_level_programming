@@ -11,11 +11,11 @@ function getMoviesChar (callback) {
   function requestNext (url) {
     request(url, (err, response, body) => {
       if (err) {
-        console.log(err);
+        console.log(err, 0);
         return;
       }
       if (response.statusCode === 404) {
-        callback(numOccerances);
+        callback(null, numOccerances);
       } else {
         const data = JSON.parse(body);
         if (data.characters.includes(charRecord)) {
@@ -30,6 +30,10 @@ function getMoviesChar (callback) {
   requestNext(url);
 }
 
-getMoviesChar((numOccerances) => {
-  console.log(numOccerances);
+getMoviesChar((err, numOccerances) => {
+  if (err) {
+    console.log('error: ' + err);
+  } else {
+    console.log(numOccerances);
+  }
 });
