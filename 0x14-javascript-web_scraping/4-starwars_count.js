@@ -3,37 +3,26 @@
 const request = require('request');
 //     "characters": [
 // "https://swapi-api.alx-tools.com/api/people/1/",
-function getMoviesChar (callback) {
-  let numOccerances = 0;
-  const url = 'https://swapi-api.alx-tools.com/api/films/1';
+function getMoviesChar () {
+  const url = 'https://swapi-api.alx-tools.com/api/films/';
   const charRecord = 'https://swapi-api.alx-tools.com/api/people/18/';
-  let id = 1;
-  function requestNext (url) {
-    request(url, (err, response, body) => {
-      if (err) {
-        console.log(err, 0);
-        return;
-      }
-      if (response.statusCode === 404) {
-        callback(null, numOccerances);
-      } else {
-        const data = JSON.parse(body);
-        if (data.characters.includes(charRecord)) {
-          numOccerances += 1;
+  let numOcc = 0;
+  request(url, (err, response, body) => {
+    if (err) {
+      console.error(err);
+    }
+    try {
+      const results = JSON.parse(response.body).results;
+      results.forEach((record) => {
+        if (record.characters.includes(charRecord)) {
+          numOcc += 1;
         }
-        id += 1;
-        url = `https://swapi-api.alx-tools.com/api/films/${id}/`;
-        requestNext(url);
       }
-    });
-  }
-  requestNext(url);
+      );
+      console.log(numOcc);
+    } catch (parseError) {
+      console.error(parseError);
+    }
+  });
 }
-
-getMoviesChar((err, numOccerances) => {
-  if (err) {
-    console.log('error: ' + err);
-  } else {
-    console.log(numOccerances);
-  }
-});
+getMoviesChar();
