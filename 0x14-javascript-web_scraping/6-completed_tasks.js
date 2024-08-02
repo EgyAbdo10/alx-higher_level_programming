@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const url = 'https://jsonplaceholder.typicode.com/todos';
+const url = process.argv[2];
 const request = require('request');
 
 const userTasksCompleted = {};
@@ -10,18 +10,12 @@ request(url, (err, response, body) => {
     console.error(err);
   }
   const records = JSON.parse(response.body);
-  for (let userId = 1; userId < 11; userId++) {
-    let tasksCompleted = 0;
-    let rec;
-    for (rec of records) {
-      if (rec.userId === userId) {
-        if (rec.completed) {
-          tasksCompleted += 1;
-        }
+  for (const rec of records) {
+    if (rec.completed) {
+      if (!(`${rec.userId}` in userTasksCompleted)) {
+        userTasksCompleted[`${rec.userId}`] = 0;
       }
-    }
-    if (tasksCompleted > 0) {
-      userTasksCompleted[`${userId}`] = tasksCompleted;
+      userTasksCompleted[`${rec.userId}`] += 1;
     }
   }
   console.log(userTasksCompleted);
