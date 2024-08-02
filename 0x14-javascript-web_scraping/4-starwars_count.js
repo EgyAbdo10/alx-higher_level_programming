@@ -5,7 +5,7 @@ const request = require('request');
 // "https://swapi-api.alx-tools.com/api/people/1/",
 function getMoviesChar (callback) {
   let numOccerances = 0;
-  const url = 'https://swapi-api.alx-tools.com/api/films/1';
+  let url = 'https://swapi-api.alx-tools.com/api/films/1';
   const charRecord = 'https://swapi-api.alx-tools.com/api/people/18/';
   let id = 1;
   function requestNext (url) {
@@ -22,7 +22,7 @@ function getMoviesChar (callback) {
           numOccerances += 1;
         }
         id += 1;
-        url = `https://swapi-api.alx-tools.com/api/films/${id}`;
+        url = `https://swapi-api.alx-tools.com/api/films/${id}/`;
         requestNext(url);
       }
     });
